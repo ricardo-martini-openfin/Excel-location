@@ -1,0 +1,40 @@
+{
+  "startup_app": {
+    "uuid": "OpenfinPOC",
+    "description": "OpenFin POC",
+    "url": "http://localhost:3000/index.html",
+    "autoShow": true,
+    "saveWindowState": false,
+    "permissions": {
+      "Application": {
+        "setFileDownloadLocation": true
+      }
+    },
+    "defaultDomainSettings": {
+      "rules": [
+        {
+          "match": [
+            "http://localhost:3000/*"
+          ],
+          "options": {
+            "downloadSettings": {
+              "rules": [
+                {
+                  "match": [
+                    "*://*/*.xlsx",
+                    "*://*/*.png"
+                  ],
+                  "behavior": "no-prompt"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "arguments": "--remote-debugging-port=9222 --v=1 --no-sandbox",
+    "version": "20.91.62.4"
+  }
+}

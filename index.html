@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>auto download</title>
+</head>
+
+<body>
+    <div>
+        <a href="http://localhost:3000/test.xlsx" download>download xlsx</a>
+        <a href="http://localhost:3000/sample.png" download>download png</a>
+    </div>
+
+
+    <script>
+        (async () => {
+
+            const downloadLocation = 'C:\Users\19148\OneDrive\Desktop';
+            const app = await fin.Application.getCurrent();
+            try {
+                await app.setFileDownloadLocation(downloadLocation);
+                console.log('File download location is set');
+            } catch(err) {
+                console.error(err)
+            }
+        })();
+    </script>
+</body>
+
+</html>

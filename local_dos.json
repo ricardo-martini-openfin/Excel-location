@@ -1,0 +1,11 @@
+{
+  "applicationSettings": {
+    "default": {
+      "permissions": {
+        "Application": {
+          "setFileDownloadLocation": true
+        }
+      }
+    }
+  }
+}
