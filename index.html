@@ -15,15 +15,33 @@
     <script>
         (async () => {
 
-            const downloadLocation = 'C:\Users\19148\OneDrive\Desktop';
+            const downloadLocation = 'C:\\Users\\19148\\Desktop';
             const app = await fin.Application.getCurrent();
             try {
                 await app.setFileDownloadLocation(downloadLocation);
                 console.log('File download location is set');
-            } catch(err) {
+                const win = fin.Window.getCurrentSync();
+                win.addListener('file-download-completed', (evt) => {
+                    console.log(evt)
+                    if (evt.state === 'completed') {
+                        fin.System.launchExternalProcess({
+                            fileUuid: evt.fileUuid,
+                            arguments: '',
+                            listener: (result) => {
+                                console.log('the exit code', result.exitCode);
+                            }
+                        }).then(processIdentity => {
+                            console.log(processIdentity);
+                        }).catch(error => {
+                            console.logerror;
+                        });
+                    }
+                });
+            } catch (err) {
                 console.error(err)
             }
         })();
+
     </script>
 </body>
 

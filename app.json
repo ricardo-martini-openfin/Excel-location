@@ -8,6 +8,9 @@
     "permissions": {
       "Application": {
         "setFileDownloadLocation": true
+      },
+      "System":{
+        "launchExternalProcess": true
       }
     },
     "defaultDomainSettings": {
@@ -35,6 +38,6 @@
   },
   "runtime": {
     "arguments": "--remote-debugging-port=9222 --v=1 --no-sandbox",
-    "version": "20.91.62.4"
+    "version": "stable"
   }
 }
