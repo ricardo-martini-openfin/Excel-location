@@ -25,7 +25,7 @@
                 {
                   "match": [
                     "*://*/*.xlsx",
-                    "*://*/*.png"
+                    "*://*/*.zip"
                   ],
                   "behavior": "no-prompt"
                 }
